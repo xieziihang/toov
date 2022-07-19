@@ -1,10 +1,15 @@
-# toov
+# umi project
 
-```
-// 安装依赖
+## Getting Started
+
+Install dependencies,
+
+```bash
 $ yarn
+```
 
-// 运行
+Start the dev server,
+
+```bash
 $ yarn start
 ```
-

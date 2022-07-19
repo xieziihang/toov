@@ -4,8 +4,8 @@ import '@@/core/devScripts';
 import { plugin } from './core/plugin';
 import './core/pluginRegister';
 import { createHistory } from './core/history';
-import { ApplyPluginsType } from 'C:/Users/86152/Desktop/toov/toov/node_modules/umi/node_modules/@umijs/runtime';
-import { renderClient } from 'C:/Users/86152/Desktop/toov/toov/node_modules/@umijs/renderer-react/dist/index18.js';
+import { ApplyPluginsType } from 'C:/Users/86152/Desktop/toovc/toov/node_modules/umi/node_modules/@umijs/runtime';
+import { renderClient } from 'C:/Users/86152/Desktop/toovc/toov/node_modules/@umijs/renderer-react/dist/index18.js';
 import { getRoutes } from './core/routes';
 
 
