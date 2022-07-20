@@ -237,7 +237,7 @@ const App = ({ data }) => {
   const modalCallbackRef = useRef((e) => {});
 
   const [options, setOptions] = useState({
-    width: 1500,
+    width: 1100,
     height: 800,
     showSeriesNumber: true,
     interaction: {
