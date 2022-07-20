@@ -29,6 +29,7 @@
     "nanoid": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "redux": "^4.2.0",
     "umi": "^3.5.30"
   },
   "devDependencies": {

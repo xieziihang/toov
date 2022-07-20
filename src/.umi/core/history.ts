@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { createBrowserHistory, History } from 'C:/Users/86152/Desktop/toovc/toov/node_modules/umi/node_modules/@umijs/runtime';
+import { createBrowserHistory, History } from 'C:/Users/86152/Desktop/push/toov/node_modules/umi/node_modules/@umijs/runtime';
 
 let options = {
   "basename": "/"
