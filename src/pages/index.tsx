@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import SciChart from '@/components/SciChart';
 import BaseChart from '@/components/BaseChart';
-import res from './basic-table-mode.json.json';
 import Guide from '@/components/Guide';
 import CollegeSelect from '@/components/CollegeSelect';
 
