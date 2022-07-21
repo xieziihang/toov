@@ -2,13 +2,12 @@ import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import SciChart from '@/components/SciChart';
 import BaseChart from '@/components/BaseChart';
-import res from './basic-table-mode.json.json';
 import Guide from '@/components/Guide';
 import CollegeSelect from '@/components/CollegeSelect';
 
 export default function index() {
   const [batchNo, setBatchNo] = useState('');
-  const [modelDataType, setModelDataType] = useState([]);
+  const [modelDataType, setModelDataType] = useState<any>([]);
   const [selectedDateType, setSelectedDataType] = useState('');
   const [rootTitle, setRootTitle] = useState([]);
   const [selectedRootTitle, setSelectedRootTitle] = useState('');
@@ -17,7 +16,6 @@ export default function index() {
   const [thirdTitle, setThirdTitle] = useState([]);
   const [selectedThirdTitle, setSelectedThirdTitle] = useState('');
   const [chartData, setChartData] = useState([]);
-
   useEffect(() => {
     if (batchNo.length) {
       const modelDataUrl =
@@ -43,9 +41,6 @@ export default function index() {
   }, [batchNo]);
 
   useEffect(() => {
-    console.log(selectedDateType === '基础', 'ssssssss');
-  }, [selectedDateType]);
-  useEffect(() => {
     if (selectedDateType.length && selectedRootTitle.length) {
       const fetchData = async () => {
         const responses = await fetch(
@@ -61,7 +56,6 @@ export default function index() {
         );
         const data = await responses.json();
         setSecondTitle(data);
-        // console.log(data);
       };
       fetchData();
     }
@@ -116,7 +110,6 @@ export default function index() {
         );
         const data = await responses.json();
         setChartData(data);
-        console.log(data, 'chartData');
       };
       fetchData();
     }
@@ -179,11 +172,11 @@ export default function index() {
             marginLeft: '-600px',
           }}
         >
-          {/* {selectedDateType === '基础' ? (
+          {chartData.length ? null : selectedDateType === '基础' ? (
             <BaseChart data={chartData}></BaseChart>
           ) : (
             <SciChart info={chartData}></SciChart>
-          )} */}
+          )}
         </div>
       </div>
     </>

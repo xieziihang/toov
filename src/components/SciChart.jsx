@@ -224,14 +224,12 @@ const scrollToCell = (rowIndex, colIndex, options, facet, interaction) => {
 
 const ScientificChart = (props) => {
   const data = props.info;
-  console.log(data, 'from scichart');
   const [oriData, setOriData] = React.useState(props.info);
   const onIconClick = ({ meta }) => {
     setInteractedCol(meta.value);
     setColModalVisible(!colModalVisible);
   };
   const s2Ref = useRef(null);
-  // console.log(initColumns);
   const [columns, setColumns] = React.useState(initColumns);
   const [interactedCol, setInteractedCol] = useState('');
   const modalCallbackRef = useRef((e) => {});
@@ -437,7 +435,6 @@ const ScientificChart = (props) => {
           value={searchKey}
           onChange={(e) => {
             setSearchKey(e.target.value);
-            // console.log(e.target.value);
             if (e.target.value.length === 0) {
               setDataCfg({ data: oriData });
             }
@@ -600,7 +597,6 @@ const SortPopover = ({ fieldName, spreadsheet, modalCallbackRef }) => {
   const onKeywordChange = (keyword) => {
     // 关键词变化时将不在关键词内的值过滤
     keyword.length ? 1 : setDataCfg({ data: oriData });
-    // console.log(keyword);
     setsearchKeyword(keyword);
     setchanged((old) => ({ ...old, filter: true }));
     const newFilter = {};

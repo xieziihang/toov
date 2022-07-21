@@ -2,7 +2,6 @@ import { Radio } from 'antd';
 import React, { useState, useEffect } from 'react';
 
 const App = (props) => {
-  console.log(props.dis, '@');
   const [rootTitleList, setRootTitleList] = useState([]);
   const [value, setValue] = useState(0);
   const tRootTitleList = [];
@@ -17,7 +16,6 @@ const App = (props) => {
     setRootTitleList(tRootTitleList);
   }, [props.rootTitle]);
   const onChange = (e) => {
-    console.log('radio checked', e.target.value);
     props.setSelectedRootTitle(e.target.value);
     setValue(e.target.value);
   };
