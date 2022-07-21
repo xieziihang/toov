@@ -1,31 +1,63 @@
 import { Select } from 'antd';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 const { Option } = Select;
 
-const onChange = (value) => {
-  console.log(`selected ${value}`);
-};
+const App = (props) => {
+  const [collegeInfos, setCollegeInfos] = useState([]);
+  const onChange = (value) => {
+    props.setBatchNo(value);
+  };
+  const onSearch = (value) => {
+    props.setBatchNo(value);
+  };
+  useEffect(() => {
+    const fetchData = async () => {
+      const responses = await fetch(
+        '/dapi/v2/tool/data_management_v2_service/retrieve_all_school',
+        {
+          method: 'POST',
+        },
+      );
+      const data = await responses.json();
+      let infoList = [];
+      for (let i = 0; i < data.length; i++) {
+        let obj = data[i];
+        for (const batchNoInfo in obj) {
+          const collegeInfo = Object.assign(
+            {},
+            { batchNo: batchNoInfo, schoolName: obj[batchNoInfo] },
+          );
+          infoList.push(collegeInfo);
+        }
+      }
+      setCollegeInfos(infoList);
+    };
+    fetchData();
+  }, []);
 
-const onSearch = (value) => {
-  console.log('search:', value);
+  return (
+    <Select
+      size="small"
+      showSearch
+      placeholder="请选择学校"
+      optionFilterProp="children"
+      onChange={onChange}
+      onSearch={onSearch}
+      filterOption={(input, option) =>
+        option.children.toLowerCase().includes(input.toLowerCase())
+      }
+    >
+      {collegeInfos.length
+        ? collegeInfos.map((collegeInfo) => {
+            return (
+              <Option value={collegeInfo.batchNo}>
+                {collegeInfo.schoolName}
+              </Option>
+            );
+          })
+        : null}
+    </Select>
+  );
 };
-
-const App = () => (
-  <Select
-    size="small"
-    showSearch
-    placeholder="请选择学校"
-    optionFilterProp="children"
-    onChange={onChange}
-    onSearch={onSearch}
-    filterOption={(input, option) =>
-      option.children.toLowerCase().includes(input.toLowerCase())
-    }
-  >
-    <Option value="jack">浙大城市学院</Option>
-    <Option value="lucy">宁波理工</Option>
-    <Option value="tom">中药大学</Option>
-  </Select>
-);
 
 export default App;

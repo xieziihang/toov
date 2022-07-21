@@ -90,20 +90,22 @@ body {
 
 #header-controller-left {
   top: 15px;
+  width: 180px;
   float: left;
   position: relative;
 }
 
 #header-controller-middle {
   top: 15px;
-  left: 260px;
+  left: 120px;
+  width: 500px;
   float: left;
   position: relative;
 }
 
 #header-controller-right {
   top: 15px;
-  left: 490px;
+  right: -200px;
   float: left;
   position: relative;
 }

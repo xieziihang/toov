@@ -8,7 +8,7 @@ import ThirdTitleSelect from '@/components/origin/ThirdTitleSelect';
 import React, { useState } from 'react';
 const { Step } = Steps;
 
-const Guide = () => {
+const Guide = (props) => {
   return (
     <>
       <p
@@ -44,26 +44,68 @@ const Guide = () => {
           <div id="header-controller">
             <div id="header-controller-left">
               学校：
-              <CollegeSelect id="header-controller-left-select" />
+              <CollegeSelect
+                id="header-controller-left-select"
+                setBatchNo={props.setBatchNo}
+              />
             </div>
             <div id="header-controller-middle">
               <div>
-                指标分类：
-                <RootTitleRadio />
+                模型选择：
+                {props.batchNo ? (
+                  <ModelDataTypeRadio
+                    modelDataType={props.modelDataType}
+                    setSelectedDataType={props.setSelectedDataType}
+                  />
+                ) : (
+                  <ModelDataTypeRadio
+                    modelDataType={[{ 基础: '基础' }, { 科创: '科创' }]}
+                    dis={true}
+                  />
+                )}
               </div>
               <div style={{ marginTop: '20px' }}>
-                模型选择：
-                <ModelDataTypeRadio />
+                指标分类：
+                {props.batchNo ? (
+                  <RootTitleRadio
+                    rootTitle={props.rootTitle}
+                    setSelectedRootTitle={props.setSelectedRootTitle}
+                  />
+                ) : (
+                  <RootTitleRadio
+                    rootTitle={[
+                      {
+                        P: '体育模型',
+                      },
+                      {
+                        L: '劳育模型',
+                      },
+                      {
+                        M: '德育模型',
+                      },
+                      {
+                        D: '扣分模型',
+                      },
+                    ]}
+                    dis={true}
+                  />
+                )}
               </div>
             </div>
             <div id="header-controller-right">
               <div>
                 二级指标：
-                <SecondTitleSelect />
+                <SecondTitleSelect
+                  secondTitle={props.secondTitle}
+                  setSelectedSecondTitle={props.setSelectedSecondTitle}
+                />
               </div>
               <div style={{ marginTop: '20px' }}>
                 三级指标：
-                <ThirdTitleSelect />
+                <ThirdTitleSelect
+                  thirdTitle={props.thirdTitle}
+                  setSelectedThirdTitle={props.setSelectedThirdTitle}
+                />
               </div>
             </div>
           </div>

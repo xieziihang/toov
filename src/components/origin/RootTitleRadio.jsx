@@ -1,18 +1,36 @@
 import { Radio } from 'antd';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const App = () => {
-  const [value, setValue] = useState(1);
-
+const App = (props) => {
+  console.log(props.dis, '@');
+  const [rootTitleList, setRootTitleList] = useState([]);
+  const [value, setValue] = useState(0);
+  const tRootTitleList = [];
+  for (let i = 0; i < props.rootTitle.length; i++) {
+    let rt = props.rootTitle[i];
+    for (let attribute in rt) {
+      let obj = Object.assign({}, { name: rt[attribute], value: attribute });
+      tRootTitleList.push(obj);
+    }
+  }
+  useEffect(() => {
+    setRootTitleList(tRootTitleList);
+  }, [props.rootTitle]);
   const onChange = (e) => {
     console.log('radio checked', e.target.value);
+    props.setSelectedRootTitle(e.target.value);
     setValue(e.target.value);
   };
 
   return (
     <Radio.Group onChange={onChange} value={value}>
-      <Radio value={1}>劳育</Radio>
-      <Radio value={2}>科创</Radio>
+      {rootTitleList.map((t) => {
+        return (
+          <Radio value={t.value} key={t.value} disabled={props.dis}>
+            {t.name.substr(0, 2)}
+          </Radio>
+        );
+      })}
     </Radio.Group>
   );
 };
