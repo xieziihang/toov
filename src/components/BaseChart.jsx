@@ -167,20 +167,15 @@ export const sortDown =
   '<svg t="1634734501800" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2875" width="200" height="200"><path d="M279.15323 958.059228l217.110799-363.160177-141.539436 0L354.724593 63.957829l-151.123938 0 0 530.943021L62.057421 594.900849 279.15323 958.059228 279.15323 958.059228zM570.078783 64.464885l386.443791 0 0 108.976114L570.078583 173.440999 570.078783 64.464885 570.078783 64.464885zM570.078783 369.594007 878.364965 369.594007l0-108.974515L570.078783 260.619492 570.078783 369.594007zM570.078783 565.747016l230.128573 0 0-108.976114L570.078783 456.770901 570.078783 565.747016 570.078783 565.747016zM570.078783 761.904621l151.972163 0L722.050945 652.930305l-151.972163 0L570.078783 761.904621zM570.078783 958.059228l73.813355 0 0-108.974315-73.813355 0L570.078783 958.059228z" p-id="2876"></path></svg>';
 
 const initColumns = [
-  'collegeID',
-  'collegeName',
-  'firstIndicator',
-  'model',
-  'secondaryIndicator',
-  'thirdIndicator',
-  'awards',
-  'point',
-  'level',
-  'weightOfLevel',
-  'team',
-  'personalTeamRank',
-  'personalWeightOfteam',
-  'condition',
+  'sid',
+  'rootTitle',
+  'secondTitle',
+  'thirdTitle',
+  'fourthTitle',
+  'thirdInitScore',
+  'fourthScore',
+  'selfApply',
+  'rowMemo',
 ];
 
 const scrollToCell = (rowIndex, colIndex, options, facet, interaction) => {
@@ -283,64 +278,40 @@ const ScientificChart = ({ data }) => {
     },
     meta: [
       {
-        field: 'collegeID',
-        name: '学校ID',
+        field: 'sid',
+        name: '数据ID',
       },
       {
-        field: 'collegeName',
-        name: '学校名称',
+        field: 'rootTitle',
+        name: '一级指标',
       },
       {
-        field: 'model',
-        name: '指标分类',
+        field: 'secondTitle',
+        name: '二级指标',
       },
       {
-        field: 'firstIndicator',
-        name: '模型选择',
+        field: 'thirdTitle',
+        name: '三级指标',
       },
 
       {
-        field: 'secondaryIndicator',
-        name: '二级指标',
+        field: 'fourthTitle',
+        name: '四级指标',
       },
       {
-        field: 'thirdIndicator',
-        name: '三级指标',
+        field: 'thirdInitScore',
+        name: '初始分',
       },
       {
-        field: 'awards',
-        name: '奖项',
+        field: 'fourthScore',
+        name: '赋分',
       },
       {
-        field: 'point',
-        name: '分数',
+        field: 'selfApply',
+        name: '是否由学生申报',
       },
       {
-        field: 'level',
-        name: '级别',
-      },
-      {
-        field: 'weightOfLevel',
-        name: '级别权重',
-      },
-      {
-        field: 'secondaryIndicator',
-        name: '二级指标',
-      },
-      {
-        field: 'team',
-        name: '团队个人',
-      },
-      {
-        field: 'personalTeamRank',
-        name: '队内排名',
-      },
-      {
-        field: 'personalWeightOfteam',
-        name: '团队个人权重',
-      },
-      {
-        field: 'condition',
+        field: 'rowMemo',
         name: '情况说明',
       },
     ],

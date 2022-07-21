@@ -1,10 +1,10 @@
 import { Divider, Steps } from 'antd';
 import './Guide.css';
-import CollegeSelect from '@/components/origin/CollegeSelect';
-import RootTitleRadio from '@/components/origin/RootTitleRadio';
-import ModelDataTypeRadio from '@/components/origin/modelDataTypeRadio';
-import SecondTitleSelect from '@/components/origin/SecondTitleSelect';
-import ThirdTitleSelect from '@/components/origin/ThirdTitleSelect';
+import CollegeSelect from '@/components/CollegeSelect';
+import RootTitleRadio from '@/components/RootTitleRadio';
+import ModelDataTypeRadio from '@/components/modelDataTypeRadio';
+import SecondTitleSelect from '@/components/SecondTitleSelect';
+import ThirdTitleSelect from '@/components/ThirdTitleSelect';
 import React, { useState } from 'react';
 const { Step } = Steps;
 
