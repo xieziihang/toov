@@ -20,6 +20,7 @@
     ]
   },
   "dependencies": {
+    "@ant-design/pro-components": "^1.1.14",
     "@ant-design/pro-layout": "^6.5.0",
     "@antv/s2": "^1.23.0",
     "@antv/s2-react": "^1.21.0",

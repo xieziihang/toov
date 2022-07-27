@@ -16,6 +16,9 @@ const App = (props) => {
         '/dapi/v2/tool/data_management_v2_service/retrieve_all_school',
         {
           method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
         },
       );
       const data = await responses.json();
